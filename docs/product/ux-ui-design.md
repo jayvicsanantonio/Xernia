@@ -1,0 +1,225 @@
+# UX and UI Design
+
+## Design Direction
+
+Xernia should feel like a serious Mac app: calm, fast, information-dense, and trustworthy.
+
+It should not feel like a marketing page, a generic wellness app, or a mobile screen stretched onto desktop. The experience should make the user feel oriented and capable.
+
+## Primary Layout
+
+Suggested macOS layout:
+
+- Left sidebar: durable navigation.
+- Main canvas: selected workspace.
+- Right inspector: contextual details, sources, citations, selected metrics, and actions.
+- Top command bar: ask, search, upload, create experiment, log event.
+
+## Navigation
+
+Primary sections:
+
+- Today
+- Ask
+- Timeline
+- Labs
+- Experiments
+- Library
+- Sources
+- Settings
+
+Optional later sections:
+
+- Plans
+- Medications
+- Symptoms
+- Appointments
+- Reports
+
+## Today View
+
+Purpose:
+
+Give the user a concise daily operating picture.
+
+Key elements:
+
+- Daily briefing.
+- Readiness or recovery state.
+- Sleep summary.
+- Activity and training recommendation.
+- Health reminders.
+- Recent anomalies.
+- Current experiment status.
+- Upcoming appointments.
+
+The Today view should prioritize one or two meaningful actions rather than flooding the user with metrics.
+
+## Ask View
+
+Purpose:
+
+Let the user ask health questions with personal context and cited sources.
+
+UI requirements:
+
+- Chat transcript.
+- Mode selector: Coach, Researcher, Analyst, Clinician Prep, Journal, Safety.
+- Source chips showing data used.
+- Inline charts where useful.
+- Citation panel.
+- "Show reasoning inputs" or "Show data used" action.
+- Follow-up suggestions.
+- Export answer.
+
+Answers should clearly label:
+
+- Personal data observations.
+- General medical context.
+- Uncertainty.
+- Suggested next steps.
+- Clinician questions.
+
+## Timeline View
+
+Purpose:
+
+Help the user see what happened, when, and what changed.
+
+Key interactions:
+
+- Filter by metric, source, tag, date range, and event type.
+- Zoom from day to week to month.
+- Add manual event.
+- Link event to symptom or experiment.
+- Compare two periods.
+
+Possible visual structure:
+
+- Date rail.
+- Event rows.
+- Metric overlays.
+- Highlighted anomalies.
+
+## Labs View
+
+Purpose:
+
+Make lab results understandable and longitudinal.
+
+Key elements:
+
+- Biomarker table.
+- Trend charts.
+- Reference ranges.
+- Result source and date.
+- Out-of-range flags.
+- Plain-language explanation.
+- Questions for clinician.
+- Linked files.
+
+Avoid alarmist colors. Use amber and red only when the product has enough confidence and the value is meaningfully abnormal.
+
+## Experiments View
+
+Purpose:
+
+Help users test lifestyle changes without fooling themselves.
+
+Key elements:
+
+- Active experiment list.
+- Hypothesis.
+- Intervention schedule.
+- Primary metric.
+- Baseline vs intervention comparison.
+- Confounder notes.
+- Result summary.
+- Confidence label.
+
+The UI should make uncertainty visible.
+
+## Library View
+
+Purpose:
+
+Provide a secure, searchable workspace for health documents.
+
+Key elements:
+
+- File list.
+- Source, type, date, and processing status.
+- Extracted entities.
+- Linked labs, medications, symptoms, or appointments.
+- Search.
+- Preview.
+- Ask about this file.
+
+## Sources View
+
+Purpose:
+
+Show every connected data source and permission.
+
+Key elements:
+
+- Connection status.
+- Last sync time.
+- Data categories imported.
+- Permission controls.
+- Revoke access.
+- Delete source data.
+- Export source data.
+
+## Visual Style
+
+Recommended style:
+
+- Native macOS controls where possible.
+- White or near-white app background.
+- Graphite text.
+- Muted blue for primary actions.
+- Green, amber, and red reserved for health states.
+- Small multiples and compact charts.
+- Subtle dividers.
+- 8px or smaller corner radius for cards.
+- Dense tables when the content is tabular.
+- SF Symbols for icons.
+
+Avoid:
+
+- Oversized marketing hero sections.
+- Decorative gradients.
+- Vague wellness illustrations.
+- One-note purple/blue palettes.
+- Excessive cards inside cards.
+- Alarmist visual language.
+- Hidden data provenance.
+
+## Command Palette
+
+The app should be keyboard-friendly.
+
+Example commands:
+
+- Ask a question.
+- Upload file.
+- Log symptom.
+- Log medication.
+- Start experiment.
+- Compare two periods.
+- Create appointment summary.
+- Search labs.
+- Export data.
+
+## Menu Bar Companion
+
+Potential later feature:
+
+- Recovery status.
+- Today's focus.
+- Reminder shortcut.
+- Quick symptom log.
+- Quick ask.
+- Next appointment.
+
