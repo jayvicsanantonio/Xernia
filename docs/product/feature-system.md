@@ -10,23 +10,22 @@ Events may include:
 
 - Sleep sessions.
 - Workouts.
-- Meals and nutrition logs.
+- Meals and nutrition notes.
 - Symptoms.
 - Mood and energy.
 - Medications.
 - Supplements.
-- Lab results.
-- Medical visits.
-- Imported health files.
+- Lab results entered manually or extracted later from user files.
+- Medical visits entered manually.
 - Travel.
 - Alcohol, caffeine, hydration, and other user-defined factors.
 - Manual notes and journal entries.
 
-The timeline should be filterable by source, date range, metric, topic, and tag.
+The timeline should be filterable by date range, Apple Health metric, topic, and tag. Third-party source filtering is not needed for MVP because Apple Health is the only structured integration.
 
 ### Ask Anything, With Context
 
-The app should include a health assistant that can answer questions using connected data, uploaded files, memories, and cited external health information.
+The app should include a health assistant that can answer questions using Apple Health data, manual logs, memories, and the installed on-device Gemma model. If trusted reference content is bundled or separately downloaded later, the assistant can cite that local content.
 
 Example questions:
 
@@ -85,13 +84,13 @@ Experiment fields:
 
 ### Nutrition Capture
 
-Nutrition data supports training load, recovery, experiment tracking, and clinician prep. On macOS, the practical capture methods are:
+Nutrition data supports training load, recovery, experiment tracking, and clinician prep. For the iOS-first MVP, keep capture lightweight:
 
-- Manual meal entry (food name, macros, calories, timing).
-- CSV import from nutrition apps (MyFitnessPal export, Cronometer export).
-- Imported nutrition data from Apple Health exports.
+- Manual notes such as meal timing, caffeine, alcohol, hydration, and relevant tags.
+- Apple Health nutrition data when already present.
+- Optional photo or barcode capture can be considered later, but it is not required for MVP.
 
-A barcode or photo scanner is not appropriate for a desktop-first workspace. If nutrition logging frequency becomes a user need, the iOS companion app is the right surface for quick capture.
+Do not add third-party nutrition integrations for MVP.
 
 ### Labs and Biomarkers
 
@@ -113,7 +112,7 @@ The app should avoid definitive diagnosis and should encourage professional medi
 
 ### Health File Library
 
-A secure file workspace for:
+A secure file workspace is a later companion workflow, especially for Mac. It can support:
 
 - Lab reports.
 - Visit summaries.
@@ -124,7 +123,7 @@ A secure file workspace for:
 - Personal notes.
 - PDFs, images, CSVs, and text files.
 
-Files should become searchable and available to the assistant after processing.
+Files should become searchable and available to the assistant after processing, but this is not required for the first iOS MVP if it slows down the Apple Health and chat loop.
 
 ### Clinician Prep
 
@@ -182,31 +181,40 @@ Anomaly labels should avoid scary or overly technical phrasing. Prefer "unusual 
 
 The first strong MVP should include:
 
-- macOS SwiftUI shell.
+- iOS SwiftUI shell.
 - Local encrypted data store.
-- Manual imports for PDFs, CSVs, and Apple Health exports.
-- Health file library.
-- Timeline.
-- Basic labs view.
-- Chat over imported files and structured metrics.
+- HealthKit permission flow.
+- Apple Health data ingestion for sleep, workouts, activity, heart rate, HRV, resting heart rate, steps, and other approved read types.
+- Simple timeline.
+- Chat over Apple Health data, manual logs, profile, and health memories.
+- On-device Gemma 4 model download, storage, and deletion.
+- Local chat inference on iPhone through Google AI Edge / LiteRT-LM or the most current supported Google on-device inference stack.
 - User profile and goals.
 - Health memories with edit/delete controls.
 - Medication and supplement list (required for clinician prep and health memory).
 - Daily briefing.
 - Basic experiments.
-- Exportable clinician summary.
+- Basic clinician summary.
 
 ## Later Features
 
 Post-MVP features:
 
-- iPhone companion app.
-- Apple Health sync through iOS companion.
-- Oura, Whoop, Garmin, Fitbit, Strava, Withings, MyFitnessPal, Eight Sleep, and other connectors.
-- Medical records through FHIR or an aggregation partner.
+- Mac companion app for deeper review and exports.
+- Health file library.
+- PDF and image document import.
+- Lab result extraction.
+- Exportable clinician packet.
 - Menu bar companion.
 - Notification and reminder system.
 - Calendar integration.
 - Advanced experiment analytics.
 - Multi-user family/caregiver mode.
 - Shareable clinician portal or read-only packet links.
+
+## Explicit Non-Goals For MVP
+
+- Oura, Whoop, Garmin, Fitbit, Strava, Withings, MyFitnessPal, Eight Sleep, or other third-party data connectors.
+- EHR aggregation, FHIR integrations, or provider matching.
+- Terra API or other wearable aggregation APIs.
+- Claude, Anthropic API keys, LM Studio, cloud chat providers, and local-network model servers.

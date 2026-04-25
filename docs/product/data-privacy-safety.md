@@ -7,7 +7,7 @@ Health data is sensitive. Xernia should treat privacy and safety as core product
 Principles:
 
 - User control by default.
-- Explicit consent for every connected source.
+- Explicit consent for Apple Health access and local model installation.
 - Clear data provenance.
 - Easy export and deletion.
 - Minimal data collection.
@@ -18,12 +18,14 @@ Principles:
 
 Users should be able to understand:
 
-- What source is connected.
-- What categories are imported.
+- Whether Apple Health is connected.
+- What Apple Health categories are approved for reading.
 - When the source last synced.
-- Whether data is stored locally, synced, or sent to an AI provider.
+- Whether data is stored locally or synced.
 - How to revoke access.
 - How to delete imported data from the app.
+- Which on-device model is installed.
+- Whether chat context stays on device.
 
 Permission copy should be specific. Avoid vague phrases like "improve your experience" when asking for health access.
 
@@ -68,6 +70,22 @@ If syncing across devices:
 - Provide per-source deletion behavior.
 - Avoid hidden cloud copies.
 
+## On-Device AI Privacy
+
+The MVP should support one chat path:
+
+- On-device Gemma 4 running directly on iPhone.
+
+Privacy requirements:
+
+- Show a clear local model indicator in chat.
+- Keep Apple Health-derived context on device.
+- Provide model download, update, and delete controls.
+- Explain model storage size before download.
+- Avoid cloud fallback for MVP.
+- Do not collect cloud AI credentials, browser cookies, API keys, or session tokens.
+- Do not send prompts, Apple Health-derived context, or generated chat content to a remote model provider.
+
 ## Medical Safety
 
 Xernia must not present itself as a doctor, diagnosis engine, or emergency service.
@@ -81,7 +99,7 @@ Required safety behaviors:
 - Avoid definitive diagnosis.
 - Avoid claiming causality from correlation.
 - Show uncertainty and missing data.
-- Cite credible sources for medical claims.
+- Cite credible local or bundled sources for medical claims when reference content is available.
 - Explain safety guidance in plain language before offering technical detail.
 
 ## High-Risk Topics

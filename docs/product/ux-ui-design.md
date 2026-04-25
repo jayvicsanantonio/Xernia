@@ -2,9 +2,9 @@
 
 ## Design Direction
 
-Xernia should feel like a serious Mac app: calm, fast, information-dense, and trustworthy.
+Xernia should feel like a serious iPhone health companion: calm, fast, clear, and trustworthy.
 
-It should not feel like a marketing page, a generic wellness app, or a mobile screen stretched onto desktop. The experience should make the user feel oriented and capable.
+It should not feel like a marketing page, a generic wellness app, or a dense desktop dashboard squeezed onto a phone. The experience should make the user feel oriented and capable in a few seconds.
 
 The default interface should be easy to understand without medical training or quantified-self jargon. Advanced detail belongs in progressive disclosure: expandable sections, side inspectors, source panels, tooltips, and conversation modes.
 
@@ -21,12 +21,20 @@ The app should never require users to configure settings before it becomes under
 
 ## Primary Layout
 
-Suggested macOS layout:
+Suggested iOS layout:
 
-- Left sidebar: durable navigation.
-- Main canvas: selected workspace.
-- Right inspector: contextual details, sources, citations, selected metrics, and actions.
-- Top command bar: ask, search, upload, create experiment, log event.
+- Tab bar: Today, Ask, Timeline, Experiments, Settings.
+- Today as the default home surface.
+- Floating or prominent Ask entry point.
+- Sheet-based inspectors for sources, citations, and data used.
+- Quick actions for logging symptoms, medication, supplement use, caffeine, alcohol, hydration, mood, and notes.
+
+Future Mac companion layout:
+
+- Sidebar navigation.
+- Larger timeline and chart workspace.
+- Document and lab review.
+- Export and clinician packet preparation.
 
 ## Navigation
 
@@ -35,14 +43,13 @@ Primary sections:
 - Today
 - Ask
 - Timeline
-- Labs
 - Experiments
-- Library
-- Sources
 - Settings
 
 Optional later sections:
 
+- Labs
+- Library
 - Plans
 - Medications
 - Symptoms
@@ -72,7 +79,7 @@ The Today view should prioritize one or two meaningful actions rather than flood
 
 Purpose:
 
-Let the user ask health questions with personal context and cited sources.
+Let the user ask health questions with personal context, transparent data usage, and local references when available.
 
 UI requirements:
 
@@ -176,23 +183,24 @@ Key elements:
 
 Purpose:
 
-Show every connected data source and permission.
+Show Apple Health permission state and local model status.
 
 Key elements:
 
-- Connection status.
+- Apple Health connection status.
+- Data categories approved for reading.
 - Last sync time.
-- Data categories imported.
-- Permission controls.
-- Revoke access.
-- Delete source data.
-- Export source data.
+- Reopen Health permissions.
+- Local model status: not installed, downloading, installed, update available, or delete available.
+- Local model name, version, size, and expected device requirements.
+- Delete local imported data.
+- Export local data.
 
 ## Visual Style
 
 Recommended style:
 
-- Native macOS controls where possible.
+- Native iOS controls where possible.
 - White or near-white app background.
 - Graphite text.
 - Muted blue for primary actions.
@@ -227,7 +235,7 @@ This preference should tune density and wording, not hide core safety informatio
 
 ## Command Palette
 
-The app should be keyboard-friendly.
+The iOS app should be quick-action friendly. A keyboard command palette can be added later for iPad and Mac.
 
 Example commands:
 

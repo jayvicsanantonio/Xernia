@@ -2,11 +2,32 @@
 
 ## Assistant Role
 
-The assistant should help the user understand health information, personal data, and next steps. It should be clear, careful, cited when making medical claims, and transparent about uncertainty.
+The assistant should help the user understand health information, personal data, and next steps. It should be clear, careful, and transparent about uncertainty.
 
 The assistant should not diagnose, prescribe, or replace professional medical care.
 
-The assistant should use plain language by default. Scientific detail, citations, mechanisms, and methodology should be available when the user asks, when Researcher or Advanced mode is selected, or when detail is needed for safety.
+The assistant should use plain language by default. Scientific detail, source references, mechanisms, and methodology should be available when the user asks, when Researcher or Advanced mode is selected, or when detail is needed for safety.
+
+## MVP On-Device Model Strategy
+
+The assistant should run locally on iPhone for MVP.
+
+MVP model path:
+
+- Gemma 4 installed directly on the iPhone.
+- Google AI Edge / LiteRT-LM, or the most current supported Google on-device inference stack, as the target runtime.
+- No Claude, Anthropic API, LM Studio, cloud chat provider, or local-network model server in the MVP.
+
+Model rules:
+
+- Make model installation status visible before the user opens chat.
+- Keep prompts, Apple Health-derived context, and generated responses on device.
+- Provide model download, pause/resume, update, and delete controls.
+- Show storage, battery, and performance expectations before model download.
+- Show model version and runtime information in settings.
+- Make quality limits visible in the UI.
+
+The app should assume the model may be unavailable until downloaded. Chat should gracefully explain what is missing and guide the user to install the local model.
 
 ## Conversation Modes
 
@@ -51,15 +72,15 @@ Example tasks:
 - Summarize guidelines.
 - Compare evidence for interventions.
 
-Citation priority order:
+Reference priority order if trusted offline reference content is bundled or separately downloaded:
 
 1. Peer-reviewed journals (PubMed, NEJM, JAMA, The Lancet).
 2. Clinical guidelines (ACC/AHA, USPSTF, WHO, NICE).
 3. Government health authorities (NIH, CDC, NHS).
 4. UpToDate or equivalent clinical reference databases.
-5. General web sources - only when no authoritative source exists, and clearly labeled as such.
+5. General web sources - only when online reference support is intentionally added later, no authoritative source exists, and the source is clearly labeled as such.
 
-Answers should always name the source and, where possible, link to the specific document or abstract. Claims without a traceable source should be framed as general context, not medical guidance.
+For MVP, fully offline chat should not promise live citations to current medical literature. Answers should distinguish Apple Health observations, local model general knowledge, and any bundled/downloaded reference content. Claims without a traceable source should be framed as general context, not medical guidance.
 
 ### Analyst
 
@@ -190,6 +211,8 @@ Every personalized answer should be able to show:
 - Memories used.
 - Metrics excluded.
 - Any missing data that limits confidence.
+- Local model name and version.
+- Confirmation that health context stayed on device.
 
 The UI should expose this through source chips and a details inspector.
 
