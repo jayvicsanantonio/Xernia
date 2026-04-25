@@ -203,9 +203,10 @@ Potential privacy mode:
 
 Device requirements:
 
-- Minimum: iPhone 15 Pro or newer (A16 Bionic chip, 8GB RAM) for Gemma 4 E2B.
-- iOS 17 or later is required for Google AI Edge Gallery and the LiteRT-LM runtime.
-- Devices below this threshold cannot run the local model. The app should detect this at launch and show a graceful message explaining the requirement. Chat features should be hidden or disabled rather than silently failing.
+- Minimum SoC: A17 Pro or newer. This corresponds to iPhone 15 Pro, iPhone 15 Pro Max, and all iPhone 16 models.
+- Minimum RAM: 8GB. All A17 Pro and later devices meet this threshold.
+- iOS 17 or later is required for the LiteRT-LM runtime.
+- Devices below this threshold cannot run the local model. The app should detect this at launch using a device model identifier check or a RAM check via ProcessInfo and show a graceful message explaining the requirement. Chat features should be hidden or disabled rather than silently failing.
 - A lighter fallback model (such as Gemma 3 1B or a quantized 1B variant) may be offered on older supported devices in a future update, but is not required for MVP.
 
 Model sizes and storage:
