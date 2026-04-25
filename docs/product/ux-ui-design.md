@@ -6,6 +6,19 @@ Xernia should feel like a serious Mac app: calm, fast, information-dense, and tr
 
 It should not feel like a marketing page, a generic wellness app, or a mobile screen stretched onto desktop. The experience should make the user feel oriented and capable.
 
+The default interface should be easy to understand without medical training or quantified-self jargon. Advanced detail belongs in progressive disclosure: expandable sections, side inspectors, source panels, tooltips, and conversation modes.
+
+## Information Depth
+
+Use a layered information model:
+
+1. Plain summary: what changed, why it may matter, and the next useful action.
+2. Personal data: the metrics, files, notes, or memories behind the summary.
+3. Medical context: cautious general explanation with citations.
+4. Technical detail: mechanisms, guidelines, units, confidence, and caveats.
+
+The app should never require users to configure settings before it becomes understandable. Settings can tune the level of detail, but the out-of-box experience must be approachable.
+
 ## Primary Layout
 
 Suggested macOS layout:
@@ -80,6 +93,8 @@ Answers should clearly label:
 - Suggested next steps.
 - Clinician questions.
 
+Answer cards should show the simplest useful version first. Citations, source quality, detailed biomarker interpretation, and statistical caveats should be accessible in the inspector or expandable sections.
+
 ## Timeline View
 
 Purpose:
@@ -119,6 +134,8 @@ Key elements:
 - Linked files.
 
 Avoid alarmist colors. Use amber and red only when the product has enough confidence and the value is meaningfully abnormal.
+
+Use friendly labels before clinical terms where possible. For example, "Blood sugar over time" can introduce "A1c," and "Iron storage" can introduce "ferritin."
 
 ## Experiments View
 
@@ -185,6 +202,7 @@ Recommended style:
 - 8px or smaller corner radius for cards.
 - Dense tables when the content is tabular.
 - SF Symbols for icons.
+- Tooltips or inline explainers for abbreviations and advanced terms.
 
 Avoid:
 
@@ -195,6 +213,17 @@ Avoid:
 - Excessive cards inside cards.
 - Alarmist visual language.
 - Hidden data provenance.
+- Making advanced scientific language the default reading layer.
+
+## User Detail Preference
+
+Settings may include a detail preference:
+
+- Simple: everyday language, fewer metrics, more guidance.
+- Standard: balanced summaries, key metrics, visible sources.
+- Advanced: more biomarker detail, citations, confidence, and methodology.
+
+This preference should tune density and wording, not hide core safety information or data provenance.
 
 ## Command Palette
 
@@ -222,4 +251,3 @@ Potential later feature:
 - Quick symptom log.
 - Quick ask.
 - Next appointment.
-

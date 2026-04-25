@@ -39,6 +39,8 @@ Example questions:
 
 Every answer should separate personal data from general medical information.
 
+Default answers should be consumer-readable. Use terms like "recovery looks lower than usual" before terms like "autonomic strain," and expose the technical explanation only when the user asks for more detail or chooses a more advanced mode.
+
 ### Daily Plan
 
 A concise morning briefing generated from the user's goals, schedule, recent data, and health memories.
@@ -81,6 +83,16 @@ Experiment fields:
 - Result summary.
 - Confidence level.
 
+### Nutrition Capture
+
+Nutrition data supports training load, recovery, experiment tracking, and clinician prep. On macOS, the practical capture methods are:
+
+- Manual meal entry (food name, macros, calories, timing).
+- CSV import from nutrition apps (MyFitnessPal export, Cronometer export).
+- Imported nutrition data from Apple Health exports.
+
+A barcode or photo scanner is not appropriate for a desktop-first workspace. If nutrition logging frequency becomes a user need, the iOS companion app is the right surface for quick capture.
+
 ### Labs and Biomarkers
 
 A dedicated lab workspace.
@@ -97,7 +109,7 @@ Capabilities:
 - Suggest clinician questions.
 - Link lab values to symptoms, habits, and medications.
 
-The app should avoid definitive diagnosis and should encourage professional medical interpretation where appropriate.
+The app should avoid definitive diagnosis and should encourage professional medical interpretation where appropriate. Lab explanations should start with a plain-language summary, then offer optional details about mechanisms, units, reference ranges, guidelines, and citations.
 
 ### Health File Library
 
@@ -164,6 +176,8 @@ Examples:
 - Symptom onset follows a major routine change.
 - Sleep score improved but subjective energy worsened.
 
+Anomaly labels should avoid scary or overly technical phrasing. Prefer "unusual for you" or "worth reviewing" over language that implies a diagnosis.
+
 ## MVP Feature Set
 
 The first strong MVP should include:
@@ -177,6 +191,7 @@ The first strong MVP should include:
 - Chat over imported files and structured metrics.
 - User profile and goals.
 - Health memories with edit/delete controls.
+- Medication and supplement list (required for clinician prep and health memory).
 - Daily briefing.
 - Basic experiments.
 - Exportable clinician summary.
@@ -192,8 +207,6 @@ Post-MVP features:
 - Menu bar companion.
 - Notification and reminder system.
 - Calendar integration.
-- Medication and supplement tracking.
 - Advanced experiment analytics.
 - Multi-user family/caregiver mode.
 - Shareable clinician portal or read-only packet links.
-

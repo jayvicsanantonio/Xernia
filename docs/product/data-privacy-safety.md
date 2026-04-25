@@ -82,6 +82,7 @@ Required safety behaviors:
 - Avoid claiming causality from correlation.
 - Show uncertainty and missing data.
 - Cite credible sources for medical claims.
+- Explain safety guidance in plain language before offering technical detail.
 
 ## High-Risk Topics
 
@@ -101,6 +102,8 @@ Examples of topics requiring extra caution:
 
 The assistant should prioritize safety over depth in these situations.
 
+Safety responses should be direct and easy to understand. They should not bury urgent guidance under citations, biomarker explanations, or long medical caveats.
+
 ## Trust UX
 
 Trust-building UI elements:
@@ -113,10 +116,10 @@ Trust-building UI elements:
 - Export and delete controls.
 - Processing status for documents.
 - Confidence labels for extracted data and generated insights.
+- Plain-language summaries with optional source and technical detail.
 
 ## Compliance Notes
 
 Consumer health apps are not automatically covered by HIPAA. If Xernia later integrates with covered entities, employer plans, providers, or health information exchanges, legal review will be required.
 
 Even if HIPAA does not apply, the product should meet a high bar for privacy, security, and user control.
-

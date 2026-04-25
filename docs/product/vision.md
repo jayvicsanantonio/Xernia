@@ -21,6 +21,8 @@ Health data is fragmented across wearables, labs, medical portals, nutrition app
 
 Xernia should make personal health information understandable, searchable, actionable, and portable.
 
+The app should be approachable before it is impressive. Scientific depth, source quality, and advanced analysis matter, but the default experience should use clear everyday language and reveal technical detail only when it helps the user's decision.
+
 ## Inspiration
 
 The product direction draws from public positioning around products like Nori and Perplexity Health:
@@ -86,6 +88,20 @@ Positioning statement:
 
 > Xernia helps you connect your health data, understand what changed, ask better questions, and prepare for better conversations about your health.
 
+## Business Model
+
+Xernia is a paid product. Health intelligence is a serious use case and users who depend on it for medical preparation and long-term tracking expect quality, privacy, and continued development.
+
+Reference points: Nori charges $19.99/month or $99.99/year. Perplexity Health requires a Pro or Max subscription.
+
+Proposed approach:
+
+- **Free tier**: Import files, build a health timeline, and manage the health file library. No AI assistant access.
+- **Pro subscription**: Full AI assistant access, daily briefing, experiment engine, clinician prep export, and all integrations. Monthly and annual pricing.
+- **No freemium AI access**: The AI assistant requires real cost per query. Providing it for free degrades the product's ability to invest in safety, citations, and model quality.
+
+Pricing, family plans, and enterprise or care-team tiers should be validated with early users before being committed to the product.
+
 ## Product Principles
 
 1. Trust before cleverness.
@@ -94,15 +110,17 @@ Positioning statement:
 2. Personal context over generic advice.
    The app should use the user's actual data when permission is granted.
 
-3. Desktop depth.
+3. Plain language by default.
+   The first read should be easy to understand without medical or quantified-self jargon. Deeper scientific detail should be available on demand through modes, expanders, citations, and settings.
+
+4. Desktop depth.
    The Mac experience should support analysis, files, charts, side-by-side comparison, keyboard workflows, and deep focus.
 
-4. User control.
+5. User control.
    The user owns their data, permissions, exports, deletions, and memories.
 
-5. Actionable, not noisy.
+6. Actionable, not noisy.
    Insights should lead to clear next steps, questions, or experiments.
 
-6. Calm design.
+7. Calm design.
    Health is already emotionally loaded. The UI should be quiet, legible, and steady.
-

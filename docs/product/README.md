@@ -26,3 +26,6 @@ Most health apps either show data without interpretation or give generic advice 
 
 The Mac app should feel like a calm command center, not a mobile app stretched across a desktop screen.
 
+## Product Language Rule
+
+Xernia should be plain-language by default and scientifically deep on demand. The first read should help a normal person understand what changed, why it may matter, and what they can do next. Technical terms, biomarker nuance, citations, and detailed evidence should remain available through modes, expanders, inspectors, and settings without overwhelming the default experience.

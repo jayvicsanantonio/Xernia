@@ -164,7 +164,8 @@ Future:
 - Withings.
 - MyFitnessPal.
 - Eight Sleep.
-- Medical records via FHIR or aggregation partner.
+- Medical records via FHIR or aggregation partner (b.well, Health Gorilla, Particle Health are evaluated options).
+- Terra API as a wearable aggregation layer — normalizes data from multiple wearable vendors through one integration instead of building individual connectors. Evaluate before committing to vendor-by-vendor integrations in Phase 5.
 
 ## Reporting
 

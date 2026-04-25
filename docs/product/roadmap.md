@@ -30,6 +30,9 @@ Features:
 - Manual health event entry.
 - PDF and CSV import placeholder flows.
 - Basic health profile and goals.
+- Medication and supplement list.
+- Onboarding flow covering: connect sources, import first file, set health goals, review privacy settings.
+- Detail preference setting: Simple, Standard, Advanced.
 
 ## Phase 2: Files, Labs, and Timeline
 
@@ -63,6 +66,7 @@ Features:
 - Health memory manager.
 - Lab explanation flow.
 - Clinician prep flow.
+- Plain-language default answer templates with expandable source and technical detail.
 
 ## Phase 4: Daily Plan and Experiments
 
@@ -103,11 +107,9 @@ Features:
 
 - Menu bar companion.
 - Notifications and reminders.
-- Strong onboarding.
 - Export and delete controls.
 - Advanced privacy settings.
 - Better citations.
 - Robust safety handling.
 - Performance pass.
 - Accessibility pass.
-
