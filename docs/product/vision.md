@@ -2,13 +2,12 @@
 
 ## Working Concept
 
-Xernia is a Mac-native personal health intelligence workspace.
+Xernia is an iOS-first personal health intelligence companion with a future Mac workspace for deeper review.
 
 It combines:
 
-- A connected health dashboard.
-- A cited health research assistant.
-- A personal health file library.
+- An Apple Health-powered dashboard.
+- An on-device health assistant.
 - A daily planning coach.
 - A structured self-experiment engine.
 - A clinician-prep workspace.
@@ -17,20 +16,42 @@ The app should help users answer: "What is happening with my body, what changed,
 
 ## Product Thesis
 
-Health data is fragmented across wearables, labs, medical portals, nutrition apps, fitness tools, PDFs, notes, and memory. Users often have enough data to see meaningful patterns, but not enough tooling to interpret those patterns safely.
+Health data is already concentrated on the iPhone through Apple Health, Apple Watch, and manual daily context. Users often have enough data to see meaningful patterns, but not enough tooling to interpret those patterns safely.
 
-Xernia should make personal health information understandable, searchable, actionable, and portable.
+Xernia should make Apple Health data understandable, searchable, actionable, and portable without requiring users to connect a long list of third-party services.
 
 The app should be approachable before it is impressive. Scientific depth, source quality, and advanced analysis matter, but the default experience should use clear everyday language and reveal technical detail only when it helps the user's decision.
 
 ## Inspiration
 
-The product direction draws from public positioning around products like Nori and Perplexity Health:
+The product direction originally drew from public positioning around products like Nori and Perplexity Health:
 
 - Nori-like ideas: wearable and lab aggregation, personal daily plans, data ownership, health experiments, and health optimization workflows.
 - Perplexity Health-like ideas: cited health Q&A, medical records and wearable context, biomarker dashboards, health memories, and transparent answers grounded in sources.
 
-Xernia should become its own product category: a desktop-grade health intelligence workspace.
+The current direction is intentionally simpler: Xernia should become an iPhone-first Apple Health intelligence companion, with the Mac app reserved for companion workflows rather than the primary experience.
+
+## Platform Decision
+
+Xernia is iOS-first.
+
+The iPhone app owns:
+
+- Apple Health permissioning and sync.
+- Daily briefing.
+- Quick health questions.
+- Symptom and habit logging.
+- Medication and supplement list.
+- Experiment check-ins.
+- Notifications and reminders.
+- Safety-aware chat.
+
+The Mac app is a later companion surface for:
+
+- Larger-screen timeline review.
+- Lab and document review.
+- Export and clinician packet preparation.
+- Advanced settings and data management.
 
 ## Target Users
 
@@ -51,7 +72,7 @@ People who track many signals and want to run personal experiments.
 
 Needs:
 
-- Wearable and lab aggregation.
+- Apple Health aggregation.
 - Experiment design.
 - Before/after analysis.
 - Data export.
@@ -74,7 +95,7 @@ People managing conditions, medications, appointments, test results, and medical
 
 Needs:
 
-- Medical file library.
+- Health document review.
 - Lab explainers.
 - Appointment prep.
 - Medication and symptom tracking.
@@ -86,7 +107,7 @@ Xernia is not a diagnosis app. It is not a doctor replacement. It is a personal 
 
 Positioning statement:
 
-> Xernia helps you connect your health data, understand what changed, ask better questions, and prepare for better conversations about your health.
+> Xernia helps you understand your Apple Health data, ask better questions, and prepare for better conversations about your health.
 
 ## Business Model
 
@@ -96,9 +117,9 @@ Reference points: Nori charges $19.99/month or $99.99/year. Perplexity Health re
 
 Proposed approach:
 
-- **Free tier**: Import files, build a health timeline, and manage the health file library. No AI assistant access.
-- **Pro subscription**: Full AI assistant access, daily briefing, experiment engine, clinician prep export, and all integrations. Monthly and annual pricing.
-- **No freemium AI access**: The AI assistant requires real cost per query. Providing it for free degrades the product's ability to invest in safety, citations, and model quality.
+- **Free tier**: Connect Apple Health, view a simple timeline, manage basic profile information, and use manual logs.
+- **Local AI tier**: Download and use the on-device Gemma 4 assistant for private local chat.
+- **No cloud chat tier for MVP**: The MVP should not depend on Claude, Anthropic, LM Studio, or any other cloud or local-network chat provider.
 
 Pricing, family plans, and enterprise or care-team tiers should be validated with early users before being committed to the product.
 
@@ -113,8 +134,8 @@ Pricing, family plans, and enterprise or care-team tiers should be validated wit
 3. Plain language by default.
    The first read should be easy to understand without medical or quantified-self jargon. Deeper scientific detail should be available on demand through modes, expanders, citations, and settings.
 
-4. Desktop depth.
-   The Mac experience should support analysis, files, charts, side-by-side comparison, keyboard workflows, and deep focus.
+4. Mobile first, Mac later.
+   The iPhone experience should support daily capture, Apple Health access, reminders, on-device AI, and quick guidance. The Mac experience should become a companion for deeper review and export workflows.
 
 5. User control.
    The user owns their data, permissions, exports, deletions, and memories.

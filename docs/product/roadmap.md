@@ -7,48 +7,47 @@ Goals:
 - Document product vision.
 - Establish information architecture.
 - Define safety and privacy principles.
-- Choose initial technical architecture.
+- Choose iOS-first technical architecture.
 
 Deliverables:
 
 - Product documentation.
 - Initial data model.
-- Initial SwiftUI navigation shell.
+- Initial iOS SwiftUI navigation shell.
 
-## Phase 1: Local Health Workspace
+## Phase 1: iOS Apple Health Companion
 
 Goals:
 
-- Make the Mac app useful without live integrations.
+- Make the iPhone app useful with Apple Health as the only structured health integration.
 
 Features:
 
-- App shell with sidebar navigation.
-- Today, Ask, Timeline, Labs, Experiments, Library, Sources, and Settings screens.
+- iOS app shell with tab navigation.
+- Today, Ask, Timeline, Experiments, and Settings screens.
 - Local database.
-- Local file vault.
+- HealthKit permission flow.
+- Apple Health sync for approved read categories.
 - Manual health event entry.
-- PDF and CSV import placeholder flows.
 - Basic health profile and goals.
 - Medication and supplement list.
-- Onboarding flow covering: connect sources, import first file, set health goals, review privacy settings.
+- Onboarding flow covering: connect Apple Health, set health goals, install the local Gemma model, review privacy settings.
 - Detail preference setting: Simple, Standard, Advanced.
 
-## Phase 2: Files, Labs, and Timeline
+## Phase 2: Timeline, Daily Plan, and Manual Logs
 
 Goals:
 
-- Turn imported files and structured entries into usable health context.
+- Turn Apple Health data and manual logs into usable daily context.
 
 Features:
 
-- Health file library.
-- Lab result entry and display.
 - Timeline filters.
-- Document metadata.
-- Basic extraction review UI.
-- Lab trend charts.
-- Appointment summary export.
+- Today view.
+- Daily briefing.
+- Symptom, medication, supplement, caffeine, alcohol, hydration, mood, and note logs.
+- Simple health trend cards.
+- Basic clinician summary.
 
 ## Phase 3: AI Assistant MVP
 
@@ -64,8 +63,9 @@ Features:
 - Source chips.
 - "Data used" inspector.
 - Health memory manager.
-- Lab explanation flow.
-- Clinician prep flow.
+- On-device Gemma 4 model download and management.
+- Local inference runtime integration through Google AI Edge / LiteRT-LM or the most current supported Google on-device stack.
+- Offline chat behavior after model installation.
 - Plain-language default answer templates with expandable source and technical detail.
 
 ## Phase 4: Daily Plan and Experiments
@@ -76,26 +76,26 @@ Goals:
 
 Features:
 
-- Daily briefing.
 - Recovery and routine summary.
 - Experiment creation.
 - Baseline vs intervention analysis.
 - Confounder logging.
 - Result summaries.
 
-## Phase 5: Apple Health and Wearable Sync
+## Phase 5: Mac Companion
 
 Goals:
 
-- Connect live health data.
+- Add a larger-screen companion for review, export, and document workflows.
 
 Features:
 
-- iOS companion app.
-- Apple Health permission flow.
-- iCloud or secure sync between iOS and macOS.
-- Oura, Whoop, Garmin, Fitbit, Strava, or Withings integrations.
-- Source manager.
+- Secure sync between iOS and macOS.
+- Larger timeline and chart review.
+- Health file library.
+- PDF and image document import.
+- Lab result review.
+- Clinician packet export.
 
 ## Phase 6: Polished Product
 
@@ -105,11 +105,19 @@ Goals:
 
 Features:
 
-- Menu bar companion.
 - Notifications and reminders.
 - Export and delete controls.
 - Advanced privacy settings.
-- Better citations.
+- Better local references and source labeling.
 - Robust safety handling.
 - Performance pass.
 - Accessibility pass.
+
+## Deferred Or Out Of Scope
+
+- Third-party wearable connectors.
+- Nutrition app connectors.
+- EHR/FHIR aggregation.
+- Healthcare provider matching.
+- Terra API or other wearable aggregation layers.
+- Claude, Anthropic API keys, LM Studio, cloud chat providers, and local-network model servers.
