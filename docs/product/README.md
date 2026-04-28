@@ -9,6 +9,7 @@ The product direction is not to copy any single app. The goal is to build a simp
 - [Vision](./vision.md): Product thesis, target users, positioning, and principles.
 - [Feature System](./feature-system.md): Core capabilities, MVP scope, and future feature ideas.
 - [UX and UI Design](./ux-ui-design.md): App structure, navigation, visual style, and screen-level direction.
+- [DESIGN.md](./DESIGN.md): Lightweight design brief and visual rules for Stitch imports or other AI design tools.
 - [AI Conversation Design](./ai-conversation-design.md): Assistant modes, topic handling, response structure, and conversation patterns.
 - [On-Device AI Architecture](./on-device-ai-architecture.md): How local Gemma inference works on iPhone and what runtime pieces are needed.
 - [Data, Privacy, and Safety](./data-privacy-safety.md): Health data boundaries, consent, security, medical safety, and trust requirements.
