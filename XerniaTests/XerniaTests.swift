@@ -6,13 +6,41 @@
 //
 
 import Testing
+@testable import Xernia
 
 struct XerniaTests {
 
-    @Test func example() async throws {
-        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
-        // Swift Testing Documentation
-        // https://developer.apple.com/documentation/testing
+    @Test func phaseZeroAppShellMatchesRoadmap() async throws {
+        #expect(AppTab.allCases.map(\.title) == [
+            "Today",
+            "Ask",
+            "Timeline",
+            "Experiments",
+            "Settings"
+        ])
+    }
+
+    @Test func phaseZeroDataModelIncludesFoundationEntities() async throws {
+        #expect(PhaseZeroDataModel.entityNames == [
+            "UserProfile",
+            "Goal",
+            "Medication",
+            "Supplement",
+            "HealthMemory",
+            "ConsentRecord"
+        ])
+    }
+
+    @Test func userProfileFallsBackToGenericNameWhenBlank() async throws {
+        let profile = UserProfile(displayName: "  ", preferredName: nil)
+
+        #expect(profile.resolvedName == "You")
+    }
+
+    @Test func consentRecordReflectsGrantedStatus() async throws {
+        let consent = ConsentRecord(kind: .appleHealth, status: .granted)
+
+        #expect(consent.isGranted)
     }
 
 }
