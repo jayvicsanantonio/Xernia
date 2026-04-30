@@ -8,14 +8,40 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selectedTab: AppTab = .today
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView(selection: $selectedTab) {
+            ForEach(AppTab.allCases) { tab in
+                NavigationStack {
+                    AppTabRootView(tab: tab)
+                }
+                .tabItem {
+                    Label(tab.title, systemImage: tab.systemImage)
+                }
+                .tag(tab)
+            }
         }
-        .padding()
+        .tint(.blue)
+    }
+}
+
+private struct AppTabRootView: View {
+    let tab: AppTab
+
+    var body: some View {
+        switch tab {
+        case .today:
+            TodayView()
+        case .ask:
+            AskView()
+        case .timeline:
+            TimelineView()
+        case .experiments:
+            ExperimentsView()
+        case .settings:
+            SettingsView()
+        }
     }
 }
 

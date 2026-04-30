@@ -2,6 +2,11 @@
 
 ## Phase 0: Product Foundation
 
+Status:
+
+- Complete as of April 28, 2026.
+- Deliverables now present in the codebase: product documentation, initial data model, and initial iOS SwiftUI navigation shell.
+
 Goals:
 
 - Document product vision.

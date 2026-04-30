@@ -23,14 +23,15 @@ final class XerniaUITests: XCTestCase {
     }
 
     @MainActor
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    func testPrimaryTabsAreAvailable() throws {
         let app = XCUIApplication()
         app.launch()
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // XCUIAutomation Documentation
-        // https://developer.apple.com/documentation/xcuiautomation
+        XCTAssertTrue(app.tabBars.buttons["Today"].waitForExistence(timeout: 2))
+        XCTAssertTrue(app.tabBars.buttons["Ask"].exists)
+        XCTAssertTrue(app.tabBars.buttons["Timeline"].exists)
+        XCTAssertTrue(app.tabBars.buttons["Experiments"].exists)
+        XCTAssertTrue(app.tabBars.buttons["Settings"].exists)
     }
 
     @MainActor
