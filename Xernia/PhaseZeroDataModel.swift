@@ -94,7 +94,9 @@ enum PhaseZeroDataModel {
         "Medication",
         "Supplement",
         "HealthMemory",
-        "ConsentRecord"
+        "ConsentRecord",
+        "HealthMetricSample",
+        "ManualHealthEvent"
     ]
 }
 
@@ -264,5 +266,125 @@ final class ConsentRecord {
 
     var isGranted: Bool {
         status == .granted
+    }
+}
+
+enum HealthMetricKind: String, Codable, CaseIterable, Identifiable {
+    case steps
+    case activeEnergy
+    case heartRate
+    case restingHeartRate
+    case heartRateVariability
+    case walkingRunningDistance
+    case sleep
+    case workout
+    case mindfulness
+
+    var id: Self { self }
+
+    var title: String {
+        switch self {
+        case .steps:
+            "Steps"
+        case .activeEnergy:
+            "Active Energy"
+        case .heartRate:
+            "Heart Rate"
+        case .restingHeartRate:
+            "Resting Heart Rate"
+        case .heartRateVariability:
+            "HRV"
+        case .walkingRunningDistance:
+            "Walking + Running"
+        case .sleep:
+            "Sleep"
+        case .workout:
+            "Workout"
+        case .mindfulness:
+            "Mindfulness"
+        }
+    }
+}
+
+enum ManualHealthEventKind: String, Codable, CaseIterable, Identifiable {
+    case symptom
+    case medication
+    case supplement
+    case hydration
+    case caffeine
+    case alcohol
+    case mood
+    case note
+
+    var id: Self { self }
+
+    var title: String {
+        rawValue.capitalized
+    }
+}
+
+@Model
+final class HealthMetricSample {
+    var kind: HealthMetricKind
+    var sourceName: String
+    var value: Double
+    var unit: String
+    var startDate: Date
+    var endDate: Date
+    var importedAt: Date
+    var notes: String?
+
+    init(
+        kind: HealthMetricKind,
+        sourceName: String = "Apple Health",
+        value: Double,
+        unit: String,
+        startDate: Date,
+        endDate: Date,
+        importedAt: Date = .now,
+        notes: String? = nil
+    ) {
+        self.kind = kind
+        self.sourceName = sourceName
+        self.value = value
+        self.unit = unit
+        self.startDate = startDate
+        self.endDate = endDate
+        self.importedAt = importedAt
+        self.notes = notes
+    }
+
+    var formattedValue: String {
+        if value.rounded() == value {
+            "\(Int(value)) \(unit)"
+        } else {
+            "\(value.formatted(.number.precision(.fractionLength(1)))) \(unit)"
+        }
+    }
+}
+
+@Model
+final class ManualHealthEvent {
+    var kind: ManualHealthEventKind
+    var title: String
+    var detail: String
+    var occurredAt: Date
+    var createdAt: Date
+    var updatedAt: Date
+
+    init(
+        kind: ManualHealthEventKind,
+        title: String,
+        detail: String = "",
+        occurredAt: Date = .now,
+        createdAt: Date = .now,
+        updatedAt: Date = .now
+    ) {
+        self.kind = kind
+        self.title = title
+        self.detail = detail
+        self.occurredAt = occurredAt
+        self.createdAt = createdAt
+        self.updatedAt = updatedAt
     }
 }

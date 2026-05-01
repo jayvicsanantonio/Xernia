@@ -8,31 +8,49 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("hasCompletedPhaseOneOnboarding") private var hasCompletedOnboarding = false
     @State private var selectedTab: AppTab = .today
+    @State private var healthKitManager = HealthKitManager()
+
+    init() {
+        if ProcessInfo.processInfo.arguments.contains("-skipOnboarding") {
+            UserDefaults.standard.set(true, forKey: "hasCompletedPhaseOneOnboarding")
+        }
+    }
 
     var body: some View {
-        TabView(selection: $selectedTab) {
-            ForEach(AppTab.allCases) { tab in
-                NavigationStack {
-                    AppTabRootView(tab: tab)
+        Group {
+            if hasCompletedOnboarding {
+                TabView(selection: $selectedTab) {
+                    ForEach(AppTab.allCases) { tab in
+                        NavigationStack {
+                            AppTabRootView(tab: tab, healthKitManager: healthKitManager)
+                        }
+                        .tabItem {
+                            Label(tab.title, systemImage: tab.systemImage)
+                        }
+                        .tag(tab)
+                    }
                 }
-                .tabItem {
-                    Label(tab.title, systemImage: tab.systemImage)
-                }
-                .tag(tab)
+                .tint(.blue)
+            } else {
+                OnboardingView(
+                    healthKitManager: healthKitManager,
+                    isComplete: $hasCompletedOnboarding
+                )
             }
         }
-        .tint(.blue)
     }
 }
 
 private struct AppTabRootView: View {
     let tab: AppTab
+    let healthKitManager: HealthKitManager
 
     var body: some View {
         switch tab {
         case .today:
-            TodayView()
+            TodayView(healthKitManager: healthKitManager)
         case .ask:
             AskView()
         case .timeline:
@@ -40,7 +58,7 @@ private struct AppTabRootView: View {
         case .experiments:
             ExperimentsView()
         case .settings:
-            SettingsView()
+            SettingsView(healthKitManager: healthKitManager)
         }
     }
 }
