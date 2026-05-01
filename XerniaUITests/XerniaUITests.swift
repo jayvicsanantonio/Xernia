@@ -25,6 +25,7 @@ final class XerniaUITests: XCTestCase {
     @MainActor
     func testPrimaryTabsAreAvailable() throws {
         let app = XCUIApplication()
+        app.launchArguments.append("-skipOnboarding")
         app.launch()
 
         XCTAssertTrue(app.tabBars.buttons["Today"].waitForExistence(timeout: 2))
@@ -38,7 +39,9 @@ final class XerniaUITests: XCTestCase {
     func testLaunchPerformance() throws {
         // This measures how long it takes to launch your application.
         measure(metrics: [XCTApplicationLaunchMetric()]) {
-            XCUIApplication().launch()
+            let app = XCUIApplication()
+            app.launchArguments.append("-skipOnboarding")
+            app.launch()
         }
     }
 }

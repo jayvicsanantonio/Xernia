@@ -5,6 +5,7 @@
 //  Created by Jayvic San Antonio on 4/22/26.
 //
 
+import Foundation
 import Testing
 @testable import Xernia
 
@@ -27,7 +28,9 @@ struct XerniaTests {
             "Medication",
             "Supplement",
             "HealthMemory",
-            "ConsentRecord"
+            "ConsentRecord",
+            "HealthMetricSample",
+            "ManualHealthEvent"
         ])
     }
 
@@ -41,6 +44,18 @@ struct XerniaTests {
         let consent = ConsentRecord(kind: .appleHealth, status: .granted)
 
         #expect(consent.isGranted)
+    }
+
+    @Test func healthMetricSampleFormatsWholeNumbers() async throws {
+        let sample = HealthMetricSample(
+            kind: .steps,
+            value: 1200,
+            unit: "steps",
+            startDate: .now,
+            endDate: .now
+        )
+
+        #expect(sample.formattedValue == "1200 steps")
     }
 
 }

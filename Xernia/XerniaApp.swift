@@ -19,7 +19,9 @@ struct XerniaApp: App {
                     Medication.self,
                     Supplement.self,
                     HealthMemory.self,
-                    ConsentRecord.self
+                    ConsentRecord.self,
+                    HealthMetricSample.self,
+                    ManualHealthEvent.self
                 ])
         }
     }
